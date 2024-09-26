@@ -53,7 +53,7 @@ export async function middleware(req: NextRequest, context: NextFetchEvent) {
   }
 
   // REVERSE PROXY
-  let prom = reverseProxy(req, TARGET_HOST)
+  let prom = reverseProxy(req, `https://${TARGET_HOST}`)
     .then((r) => {
       if (r.status == 308) console.log("308");
       res = r;
